@@ -53,6 +53,34 @@ Each of these parts is used to store specific types of variables.
 The most famous (not really but why not), are the `Heap` and the `Stack`.
 
 Find out more about this topic here: https://www.freecodecamp.org/news/understand-your-programs-memory-92431fa8c6b/
+
+## 3. Try to see man brk(2) and man sbrk(2)
+To create a malloc function with the prototype `void *malloc(size_t size)`, sbrk function needs to be used.
+
+If `malloc` fails to allocate memory, what does it return?
+
+## 4. Do you know about meta data in memory?
+maybe `size`, `next`, `free` using `struct`...?
+
+## 5. Try to find place!
+If you do the exercise 4, and if you know how linked list works, you can find a empty place in your heap!
+
+## 6. Try to increase place!
+If you can't find place in heap, you have to increase the size of the heap!
+
+## 7. And malloc time!
+```c
+if (heap)
+	// find place
+
+	// if (find place)
+		// set data
+	// else
+		// increase heap
+else
+	// increase heap
+```
+
 ## Authors
 
 - [@JeremyElalouf](https://www.github.com/jeremyelalouf)
