@@ -5,17 +5,18 @@
 ## Makefile
 ##
 
-MAIN	= sources/main.c\
+MAIN		= sources/main.c\
 
-SRC		=\
-		sources/exo1.c\
+SRC			=\
+			sources/exo1.c\
+			sources/exo3.c\
 
-OBJ		=	$(MAIN:.c=.o) $(SRC:.c=.o)
+OBJ			=	$(MAIN:.c=.o) $(SRC:.c=.o)
 
-NAME	=	my_malloc
+NAME		=	my_malloc
 
-CFLAGS	=	-Wall -Wextra
-CPPFLAGS=	-iquote./include
+CFLAGS		=	-Wall -Wextra
+CPPFLAGS	=	-iquote ./includes
 
 all:	$(NAME)
 
