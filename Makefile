@@ -12,6 +12,7 @@ SRC			=\
 			sources/exo3.c\
 			sources/exo4.c\
 			sources/exo5.c\
+			sources/malloc.c\
 
 OBJ			=	$(MAIN:.c=.o) $(SRC:.c=.o)
 

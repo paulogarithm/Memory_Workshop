@@ -22,11 +22,18 @@ int main(int argc, char *argv[])
     printf("%s %p\n", str, str);
     printf("%s %p\n", str, str);
 
+    char *str2 = malloc(sizeof(char) * 4);
+
+    strcpy(str2, "Wow");
+    printf("%s %p\n", str2, str2);
+
     free(str);
     printf("%s %p\n", str, str);
 
     str = malloc(sizeof(char) * 12);
     printf("%s %p\n", str, str);
-    
+
+    free(str2);
+    free(str);
     return 0;
 }
