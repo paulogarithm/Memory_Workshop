@@ -9,17 +9,15 @@
     #define MALLOC_H_
 
     #include <stddef.h>
+    #include <stdbool.h>
 
 typedef struct s_node node_t;
 
 struct s_node {
+    bool freed;
     size_t size;
     void *ptr;
     struct s_node *next;
 };
-
-typedef struct s_heap {
-    node_t *beggin;
-} heap_t;
 
 #endif /* !MALLOC_H_ */
