@@ -54,21 +54,40 @@ The most famous (not really but why not), are the `Heap` and the `Stack`.
 
 Find out more about this topic here: https://www.freecodecamp.org/news/understand-your-programs-memory-92431fa8c6b/
 
-## 3. Try to see man brk(2) and man sbrk(2)
-To create a malloc function with the prototype `void *malloc(size_t size)`, sbrk function needs to be used.
+## 3. How can malloc give me space 🤔
+Of course, the `void *malloc(size_t size);` is a glibc function, so in order to give you the space you need it will have to use a system call (a function provided by the Kernel).
+To do that, it will use the sbrk system call.
 
-If `malloc` fails to allocate memory, what does it return?
+I think it's a good idea to start reading the man 2 sbrk (do you know why not man 3 ? 🤔)
+When this will be done, it's possible for you to start the creation of you're `my_malloc()` function.
 
-## 4. Do you know about meta data in memory?
-maybe `size`, `next`, `free` using `struct`...?
+Let's do that ! 🥳
 
-## 5. Try to find place!
-If you do the exercise 4, and if you know how linked list works, you can find a empty place in your heap!
+(if `malloc` fails to allocate memory, what does it return?)
+
+## 4. Have you heard about the malloc's meta-data.
+
+<img width="1607" alt="meta" src="https://github.com/legolas-tek/Memory_Workshop/assets/75589941/4bae0483-b65f-4712-aa2a-4697081638e6">
+
+This is how the malloc's meta-data works, in order to give malloc every informations he need he will stock some good informations.
+
+What information do you think malloc needs ? Personally I think it would be a good thing to know what's `size` the current block, maybe the addresse `next` of the next block
+and the information `free` status...
+
+A `struct` should be good to stock those informations nah ?
+
+The linked list of those struct will represent you're special heap :).
+
+## 5. How malloc know where to place you're demand ?
+
+Malloc need's to find a freed place, if you did the exercise 4, and if you know how linked list works, you can find a empty place in your heap!
 
 ## 6. Try to increase place!
+
 If you can't find place in heap, you have to increase the size of the heap!
 
 ## 7. And malloc time!
+
 ```c
 if (heap)
 	// find place
