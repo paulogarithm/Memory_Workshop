@@ -5,9 +5,10 @@
 ## Makefile
 ##
 
-MAIN	=	sources/main.c 		\
+MAIN	= sources/main.c\
 
-SRC		=
+SRC		=\
+		sources/exo1.c\
 
 OBJ		=	$(MAIN:.c=.o) $(SRC:.c=.o)
 
