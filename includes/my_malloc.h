@@ -11,13 +11,13 @@
     #include <stddef.h>
     #include <stdbool.h>
 
-typedef struct s_node node_t;
+typedef struct s_meta meta_t;
 
-struct s_node {
+struct s_meta {
     bool freed;
     size_t size;
-    void *ptr;
-    struct s_node *next;
+    struct s_meta *next;
+    char ptr[1];
 };
 
 #endif /* !MALLOC_H_ */

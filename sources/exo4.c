@@ -9,9 +9,13 @@ void *heap = NULL;
 
 void *exo4(size_t size)
 {
-    void *ptr = sbrk((intptr_t)size + sizeof(node_t));
-    
-    if ((intptr_t)ptr < 0)
+    meta_t *meta = sbrk(0);
+
+    if ((intptr_t)(sbrk(sizeof(meta_t) + (intptr_t)size)) < 0)
         return NULL;
-    return ptr;
+    meta->freed = false;
+    meta->next = heap;
+    meta->size = size;
+    heap = meta;
+    return meta + sizeof(meta_t);
 }

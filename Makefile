@@ -10,6 +10,7 @@ MAIN		= sources/main.c\
 SRC			=\
 			sources/exo1.c\
 			sources/exo3.c\
+			sources/exo4.c\
 
 OBJ			=	$(MAIN:.c=.o) $(SRC:.c=.o)
 
@@ -26,9 +27,14 @@ $(NAME):	$(OBJ)
 clean:
 	rm -f $(OBJ)
 
+debug: CFLAGS += -g3
+debug: all
+
 fclean:	clean
 	rm -f $(NAME)
 
 re:	fclean all
 
-.PHONY:	all clean fclean re
+redeb: fclean debug
+
+.PHONY:	all clean fclean re debug redeb
