@@ -5,22 +5,28 @@
 ** memory
 */
 
-#include <stdbool.h>
 #include <stddef.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "my_malloc.h"
 
-bool exo1(void);
-void *exo3(size_t size);
-void *exo4(size_t size);
+void *malloc(size_t size);
+void free(void *ptr);
 
 int main(int argc, char *argv[])
 {
-    char *str = exo4(sizeof(char) * 10);
+    char *str = malloc(sizeof(char) * 15);
 
-    str[0] = 'A';
-    str[1] = '\0';
-    printf("%s\n", str);
+    strcpy(str, "Hello world !");
+    printf("%s %p\n", str, str);
+    printf("%s %p\n", str, str);
+
+    free(str);
+    printf("%s %p\n", str, str);
+
+    str = malloc(sizeof(char) * 12);
+    printf("%s %p\n", str, str);
+    
     return 0;
 }

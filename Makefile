@@ -11,6 +11,7 @@ SRC			=\
 			sources/exo1.c\
 			sources/exo3.c\
 			sources/exo4.c\
+			sources/exo5.c\
 
 OBJ			=	$(MAIN:.c=.o) $(SRC:.c=.o)
 
